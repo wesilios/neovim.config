@@ -9,5 +9,6 @@ Plug 'shougo/neocomplete.vim'
 Plug 'junegunn/fzf'
 Plug 'tpope/vim-eunuch'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'rakr/vim-one'
 
 call plug#end()

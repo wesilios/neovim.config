@@ -14,6 +14,7 @@ let g:NERDTreeShowBookmarks=1
 syntax enable
 set background=dark
 highlight Normal ctermbg=None
-colorscheme gruvbox
+"colorscheme gruvbox
+colorscheme one
 let g:airline_theme='gruvbox'
 set termguicolors
