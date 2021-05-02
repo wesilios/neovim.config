@@ -1,20 +1,18 @@
-"NERDTree
-map <C-b> :NERDTreeToggle<CR>
-map <C-i> :NERDTreeFind<CR>
-let g:NERDTreePatternMatchHighlightFullName = 1
-let NERDTreeAutoDeleteBuffer = 1
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
-let g:NERDDefaultAlign = 'left'
-let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
-let g:NERDTreeChDirMode=2
-let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__', 'node_modules']
-let g:NERDTreeShowBookmarks=1
-"Theme 
-syntax enable
-set background=dark
-highlight Normal ctermbg=None
-"colorscheme gruvbox
-colorscheme one
-let g:airline_theme='gruvbox'
-set termguicolors
+"Plugin settings {{{
+    "Enable vim-jsx also for .js files
+    let g:jsx_ext_required = 0
+
+    "Disable folding for markdown files
+    let g:vim_markdown_folding_disabled = 1
+
+    let g:LanguageClient_serverCommands = {
+    \ 'javascript': ['javascript-typescript-stdio']
+    \ }
+
+    "CoC extensions
+    let g:coc_global_extensions = [
+          \ 'coc-snippets',
+          \ 'coc-rls',
+          \ 'coc-pairs'
+          \ ]
+"}}}
