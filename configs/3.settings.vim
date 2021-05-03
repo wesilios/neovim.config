@@ -54,6 +54,10 @@
     nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 
     imap jj <Esc>
+
+    set hidden
+    nnoremap <C-N> :bnext<CR>
+    nnoremap <C-P> :bprev<CR>
 "}}}
 
 "Statusline {{{
