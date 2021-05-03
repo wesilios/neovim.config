@@ -79,6 +79,9 @@
     "OmiSharp
     Plug 'OmniSharp/omnisharp-vim'
 
+    "Buff tab lines
+    Plug 'ap/vim-buftabline'
+
     call plug#end()
 
 "}}}
