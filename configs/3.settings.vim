@@ -36,7 +36,7 @@
 
     "Scheme available 'gruvbox', 'molokai256'
     "let g:airline_theme=onedark
-    colorscheme molokai256
+    colorscheme gruvbox 
 "}}}
 
 "Key mappings {{{
