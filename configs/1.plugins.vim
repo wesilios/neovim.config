@@ -71,7 +71,7 @@
     "Vim bindings for rtags, llvm/clang based c++ code indexer
     Plug 'lyuts/rtags'
 
-    "Theme airlines
+    "Theme
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'morhetz/gruvbox'
@@ -81,6 +81,9 @@
 
     "Buff tab lines
     Plug 'ap/vim-buftabline'
+
+    "Markdown
+    Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
     call plug#end()
 
