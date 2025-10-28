@@ -2,13 +2,12 @@ name: Validate configuration
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["master"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["master"]
 
 jobs:
   validate-config:
-
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
