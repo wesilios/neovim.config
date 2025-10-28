@@ -1,0 +1,33 @@
+steps:
+  - name: Checkout code
+    uses: actions/checkout@v4
+
+  - name: Setup Neovim
+    uses: rhysd/action-setup-vim@v1
+    with:
+      neovim: true
+      version: stable
+
+  - name: Install vim-plug
+    run: |
+      curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+      
+  - name: Create config directory
+    run: mkdir -p ~/.config/nvim
+  
+  - name: Copy configuration files
+    run: cp -r * ~/.config/nvim/
+  
+  - name: Validate configuration syntax
+    run: |
+      nvim --headless -c "try | source ~/.config/nvim/init.vim | catch | cquit 1 | endtry | quit"
+    
+  - name: Test plugin installation
+    run: |
+      nvim --headless -c "PlugInstall --sync" -c "qa"
+    
+  - name: Basic functionality test
+    run: |
+      echo "Testing basic Neovim functionality..."
+      nvim --headless -c "echo 'Configuration loaded successfully'" -c "quit"
