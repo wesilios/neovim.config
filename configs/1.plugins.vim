@@ -11,13 +11,26 @@
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
     "Language protocol support
-    Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh'
-    \ }
+    " Cross-platform installation
+    if has('win32') || has('win64')
+        Plug 'autozimu/LanguageClient-neovim', {
+        \ 'branch': 'next',
+        \ 'do': 'powershell -ExecutionPolicy Bypass -File install.ps1'
+        \ }
+    else
+        Plug 'autozimu/LanguageClient-neovim', {
+        \ 'branch': 'next',
+        \ 'do': 'bash install.sh'
+        \ }
+    endif
 
     "Fuzzy file finder
-    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    " Cross-platform installation
+    if has('win32') || has('win64')
+        Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    else
+        Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    endif
     Plug 'junegunn/fzf.vim'
 
     "Additional syntax detection & highlighting
@@ -42,7 +55,14 @@
     Plug 'w0rp/ale'
 
     "Async execution for vim (dependency of tsuquyomi)
-    Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+    " Cross-platform build
+    if has('win32') || has('win64')
+        Plug 'Shougo/vimproc.vim', { 'do': 'tools\\update-dll-mingw' }
+    elseif has('mac')
+        Plug 'Shougo/vimproc.vim', { 'do': 'make -f make_mac.mak' }
+    else
+        Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+    endif
 
     "JSX support
     Plug 'mxw/vim-jsx'
@@ -83,7 +103,12 @@
     Plug 'ap/vim-buftabline'
 
     "Markdown
-    Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+    " Cross-platform installation
+    if has('win32') || has('win64')
+        Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
+    else
+        Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+    endif
 
     call plug#end()
 
