@@ -29,7 +29,7 @@ A clean, modular Neovim configuration optimized for development productivity.
 
 1. **Clone this configuration:**
    ```sh
-   git clone https://github.com/yourusername/neovim.config ~/.config/nvim
+   git clone https://github.com/wesilios/neovim.config ~/.config/nvim
    ```
 
 2. **Install vim-plug (plugin manager):**
