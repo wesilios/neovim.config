@@ -46,7 +46,7 @@ function M.options()
         },
       },
       prettier_md = {
-        inherit = true,
+        inherit = 'prettier',
         prepend_args = {
           '--prose-wrap',
           'preserve',
